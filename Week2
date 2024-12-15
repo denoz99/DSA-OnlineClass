@@ -1,0 +1,56 @@
+menus = [
+    {
+        "name" : "Bakso",
+        "price": 20000
+    },
+    {
+        "name" : "Rawon",
+        "price": 20000
+    },
+    {
+        "name" : "Soto Ayam",
+        "price": 25000
+    },
+    {
+        "name" : "Gado-Gado",
+        "price": 15000
+    },
+    {
+        "name" : "Pecel",
+        "price": 15000
+    }
+]
+nama = input("Input nama pelanggan: ")
+menu_dipesan = []
+nama_pesanan_all = []
+
+for menu in menus:
+  nama_pesanan_all.append(menu["name"])
+
+# print(nama_pesanan_all)
+
+while True:
+  pesanan = input("Input nama pesanan disini: ")
+  if pesanan in nama_pesanan_all:
+    menu_dipesan.append(pesanan)
+  else:
+    print("Maaf pesanan tidak ditemukan")
+
+  print("Apakah sudah selesai?(Sudah/Belum)")
+  done = input()
+
+  if done == "Sudah":
+    break
+
+print(f"Nama pelanggan: {nama}")
+print(f"Menu dipesan: {menu_dipesan}")
+
+total_pesanan = len(menu_dipesan)
+print(f"Total pesanan: {total_pesanan}")
+
+total_harga = 0
+for menu in menus:
+  if menu["name"] in menu_dipesan:
+    total_harga += menu["price"]
+
+print(f"Total harga: {total_harga}")
